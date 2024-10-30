@@ -25,7 +25,7 @@ void semaphore_signal(Semaphore* sem);
 
 void semaphore_destroy(Semaphore* sem);
 
-// #ifdef SEMAPHORE_IMPLEMENTATION
+#ifdef SEMAPHORE_IMPLEMENTATION
 
 Semaphore *semaphore_create(Arena *arena, u32 key, i32 initial_value) {
 
