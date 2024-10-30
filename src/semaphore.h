@@ -23,6 +23,8 @@ void semaphore_wait(Semaphore* sem);
 
 void semaphore_signal(Semaphore* sem);
 
+void semaphore_zero(Semaphore* sem);
+
 void semaphore_destroy(Semaphore* sem);
 
 #ifdef SEMAPHORE_IMPLEMENTATION
