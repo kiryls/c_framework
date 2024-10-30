@@ -85,6 +85,19 @@ void semaphore_signal(Semaphore* sem) {
     }
 }
 
+
+void semaphore_zero(Semaphore* sem) {
+    struct sembuf op;
+
+    op.sem_num = 0;
+    op.sem_op = 0;
+    op.sem_flg = 0;
+
+    if(semop(sem->sem_id, &op, 1) == -1) {
+        perror("Failed to signal semaphore");
+    }
+}
+
 void semaphore_destroy(Semaphore *sem) {
     if(semctl(sem->sem_id, 0, IPC_RMID) == -1) {
         perror("Failed to destroy semaphore");
